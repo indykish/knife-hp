@@ -62,13 +62,13 @@ class Chef
         validate!
 
         @name_args.each do |instance_id|
-        
+        #Fetch instance_id by name of the server =====> MEGAM SYSTEMS CODE START
         connection.servers.all.each do |ser|
         	if ser.name.to_s == "#{instance_id}"
         		instance_id = ser.id
 		end
 	end
-	
+	#=====> MEGAM SYSTEMS CODE END
           begin
             server = connection.servers.get(instance_id)
             addresses = connection.addresses
